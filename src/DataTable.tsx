@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react"
 import TableFooter from "./TableFooter";
 import useTable from "./useTables";
 import modules from './DataTable.module.css';
+import caretUp from './caret-up-solid.svg';
+import caretDown from './caret-down-solid.svg';
+import caretUnsorted from './arrow-unsorted_1.svg';
 
 
 interface DataTableProps {
@@ -120,6 +123,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
 						{columns.map((column) => (
 							<th className={modules.columnTitleCell} key={column.key} onClick={() => handleColumnClick(column.key)}>
 								{column.label}
+								<img src={column.key === sortColumnObject.currentColunm ? (sortOrder.value === "asc" ? caretUp : caretDown) : caretUnsorted} alt="sorting"/>
 							</th>
 						))}
 					</tr>
