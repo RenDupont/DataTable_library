@@ -60,6 +60,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
 			);
 		});
 		setSortedData(filteredData);
+		setSortColumnObject({previousColunm: "", currentColunm: ""});
 		setPage(1);
 	};
 
