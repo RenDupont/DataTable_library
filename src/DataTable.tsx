@@ -92,15 +92,6 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
 		setSortedData(newResult);
 	}
 
-	function getRowClass(index: number, sortedColumn: string): string {
-		if (index % 2 === 0) {
-			return sortedColumn === "" ? modules.evenRow : modules.evenRowSorted;
-		} else {
-			return sortedColumn === "" ? modules.oddRow : modules.oddRowSorted;
-		}
-	}
-
-
 	return (
 		<div className={modules.dataTables_wrapper}>
 			<div className={modules.dataTables_header}>
@@ -124,7 +115,10 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
 						{columns.map((column) => (
 							<th className={modules.columnTitleCell} key={column.key} onClick={() => handleColumnClick(column.key)}>
 								{column.label}
-								<img src={column.key === sortColumnObject.currentColunm ? (sortOrder.value === "asc" ? caretUp : caretDown) : caretUnsorted} alt="sorting"/>
+								<img className={column.key === sortColumnObject.currentColunm ? modules.iconSorted : modules.iconUnsorted} 
+									src={column.key === sortColumnObject.currentColunm ? (sortOrder.value === "asc" ? caretUp : caretDown) : caretUnsorted} 
+									alt="sorting"
+								/>
 							</th>
 						))}
 					</tr>
