@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es2017",
+        "jsx": "react",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "allowJs": true,
+        "declaration": true, // required to generate corresponding *.d.ts files
+        "outDir": "./dist",
+        "esModuleInterop": true,
+        "strict": true,
+        "noImplicitAny": true,
+    },
+    "exclude": [
+        "node_modules",
+    ],
+    "hooks": [
+        "copy-files" // copies all files to the dist folder
+    ],
+    "include": [
+        "src/",
+        "src/**/*.module.css", // include css files while building the project using tsc
+        "src/**/*.svg"
+    ]
+}

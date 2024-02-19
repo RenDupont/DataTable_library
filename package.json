@@ -1,0 +1,29 @@
+{
+  "name": "data-table-projet-14",
+  "version": "1.0.2",
+  "description": "DataTable library",
+  "main": "dist/",
+  "scripts": {
+    "test": "yarn test",
+    "build": "tsc"
+  },
+  "keywords": [
+    "react",
+    "dataTable_library"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsc-hooks": "^1.1.2",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "files": [
+    "/dist"
+  ]
+}
