@@ -4,7 +4,10 @@
 
 This component displays a Data table.
 
-(https://www.npmjs.com/package/data-table-projet-14)
+https://www.npmjs.com/package/data-table-projet-14
+
+https://github.com/RenDupont/DataTable_library.git
+
 
 ## Install
 
@@ -83,7 +86,6 @@ function EmployeeList(): JSX.Element {
         <div>
             <h1>Current Employees</h1>
             <DataTable
-                key={dataTest.length}
                 columns={columns}
                 data={dataTest}
             />
