@@ -115,7 +115,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
 						{columns.map((column) => (
 							<th className={modules.columnTitleCell} key={column.key} onClick={() => handleColumnClick(column.key)}>
 								{column.label}
-								<img className={column.key === sortColumnObject.currentColunm ? modules.iconSorted : modules.iconUnsorted} 
+								<img className={column.key === sortColumnObject.currentColunm ? (sortOrder.value === "asc" ? modules.iconSortedAsc : modules.iconSortedDesc) : modules.iconUnsorted} 
 									src={column.key === sortColumnObject.currentColunm ? (sortOrder.value === "asc" ? caretUp : caretDown) : caretUnsorted} 
 									alt="sorting"
 								/>
