@@ -6,12 +6,19 @@ import caretUp from './caret-up-solid.svg';
 import caretDown from './caret-down-solid.svg';
 import caretUnsorted from './arrow-unsorted_1.svg';
 
-
+// Définition des types pour les props du composant DataTable
 interface DataTableProps {
 	data: Array<{ [key: string]: any }>;
 	columns: Array<{ key: string; label: string }>;
 }
 
+/**
+ * Composant DataTable pour afficher les données sous forme de tableau avec des fonctionnalités de tri et de pagination.
+ *
+ * @param data Les données à afficher dans le tableau
+ * @param columns Les colonnes à afficher dans le tableau avec leurs étiquettes
+ * @returns Le composant DataTable
+ */
 const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
 
 	const [sortOrder, setSortOrder] = useState<{colunmName?: string, value?: string}>({});
@@ -26,6 +33,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
 		setSortColumnObject({previousColunm: sortColumnObject.currentColunm, currentColunm: columnKey});
 	};
 
+	// Effet pour mettre à jour l'ordre de tri
 	useEffect(() => {
 		const {currentColunm, previousColunm} = sortColumnObject;
 		const defaultOrder = {
@@ -40,6 +48,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
 		},[sortColumnObject]
 	)
 
+	// Effet pour trier les données lorsqu'il y a un changement dans le tri ou les données
 	useEffect(() => {
 			if (searchTerm !== "") {
 				sortData(sortedData);
@@ -51,6 +60,11 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
 		},[sortOrder, data]
 	)
 
+	/**
+     * Gestion du changement du terme de recherche dans la barre de recherche.
+     *
+     * @param event L'événement de changement déclenché lorsqu'un utilisateur tape dans la barre de recherche
+     */
 	const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const searchTerm = event.target.value.toLowerCase();
 		setSearchTerm(searchTerm);
@@ -64,6 +78,12 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
 		setPage(1);
 	};
 
+	/**
+     * Trie les données en fonction de la colonne spécifiée et de l'ordre de tri.
+     *
+     * @param dataToSort Les données à trier
+     * @returns Les données triées
+     */
 	function sortData(dataToSort: any[] = data) {
 		const newResult = dataToSort.slice().sort((a: any, b: any) => {
 			if (sortColumnObject.currentColunm) {
@@ -92,6 +112,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, columns }) => {
 		setSortedData(newResult);
 	}
 
+	// Rendu du composant DataTable
 	return (
 		<div className={modules.dataTables_wrapper}>
 			<div className={modules.dataTables_header}>

@@ -1,6 +1,7 @@
 import React from "react";
 import modules from './TableFooter.module.css';
 
+// Définition des types pour les props du composant TableFooter
 interface TableFooterProps {
 	range: number[];
 	handlePage: (page: number) => void;
@@ -9,13 +10,25 @@ interface TableFooterProps {
     totalEntriesNb: number;
 }
 
+/**
+ * Composant TableFooter pour naviguer et afficher les informations de pagination et le nombre d'entrées dans le tableau.
+ *
+ * @param range La plage de numéros de page à afficher
+ * @param handlePage La fonction de gestion du changement de page
+ * @param page Le numéro de page actuel
+ * @param rowPagination Le nombre d'entrées par page
+ * @param totalEntriesNb Le nombre total d'entrées dans le tableau
+ * @returns Le composant TableFooter
+ */
 const TableFooter:React.FC<TableFooterProps> = ({ range, handlePage, rowPagination, page, totalEntriesNb }) => {
 
+    // Calcul de l'entrée de départ et de fin affichées dans le pied de page
     const startEntry = (page - 1) * rowPagination + 1;
     const endEntry = Math.min(page * rowPagination, totalEntriesNb);
 
     let displayedRange: number[] = [];
 
+    // Logique pour déterminer la plage de pages à afficher dans le pied de page
     if (range.length <= 3) {
         displayedRange = range;
     } else {
@@ -23,18 +36,21 @@ const TableFooter:React.FC<TableFooterProps> = ({ range, handlePage, rowPaginati
         displayedRange = range.slice(midIndex, midIndex + 3);
     }
 
+    // Fonction pour aller à la page précédente
     const goToPreviousPage = () => {
         if (page > 1) {
             handlePage(page - 1);
         }
     };
 
+    // Fonction pour aller à la page suivante
     const goToNextPage = () => {
         if (page < range.length) {
             handlePage(page + 1);
         }
     };
 
+    // Rendu du composant TableFooter
     return (
         <div className={modules.tableFooter}>
             <span>Showing {startEntry} to {endEntry} of {totalEntriesNb} entries</span>
