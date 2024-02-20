@@ -63,7 +63,6 @@
     height: 15px;
     position: absolute;
     right: 0;
-    color: gray;
 }
 
 .iconSortedDesc {
@@ -72,7 +71,6 @@
     position: absolute;
     bottom: 8px;
     right: 0;
-    color: gray;
 }
 
 .iconUnsorted {
@@ -80,5 +78,4 @@
     height: 14px;
     position: absolute;
     right: 0;
-    color: lightgray;
 }
