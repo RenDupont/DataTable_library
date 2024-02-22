@@ -4,10 +4,13 @@
 
 This component displays a Data table.
 
+[![npm version](https://img.shields.io/badge/npm-10.2.3-blue.svg)](https://www.npmjs.com/package/data-table-projet-14)
+
 https://www.npmjs.com/package/data-table-projet-14
 
 https://github.com/RenDupont/DataTable_library.git
 
+This library was developed on VS Code.
 
 ## Install
 

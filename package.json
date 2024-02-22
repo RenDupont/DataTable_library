@@ -3,6 +3,7 @@
   "version": "1.0.10",
   "description": "DataTable library",
   "main": "dist/",
+  "author": {"name": "Dupont Renaud"},
   "scripts": {
     "test": "yarn test",
     "build": "tsc"
